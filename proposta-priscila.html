@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proposta Comercial - Landing Page com IA</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpg" href="logo.jpg">
+    <!-- Favicon Web (Dev Icon </>) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22 fill=%22%234f46e5%22 font-family=%22monospace%22 font-weight=%22bold%22>&lt;/&gt;</text></svg>">
 
     <!-- SEO & Social Meta Tags -->
-    <meta name="description" content="Proposta comercial personalizada Landing Page profissional com Agente de IA.">
+    <meta name="description"
+        content="Proposta comercial Landing Page profissional com Agente de IA.">
     <meta property="og:title" content="Proposta Comercial - Landing Page com IA">
     <meta property="og:description"
         content="Confira os detalhes do seu projeto de Landing Page com Inteligência Artificial.">
-    <meta property="og:image" content="logo.jpg">
     <meta property="og:type" content="website">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap');
@@ -51,7 +54,6 @@
             line-height: 1.6;
             color: var(--text-main);
             background-color: #d1d5db;
-            /* Gray background for screen mockup */
             padding: 40px 0;
         }
 
@@ -65,7 +67,6 @@
             position: relative;
         }
 
-        /* Typography */
         h1 {
             font-weight: 700;
             font-size: 2.4rem;
@@ -82,18 +83,11 @@
             align-items: center;
         }
 
-        h3 {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 1.5rem;
-        }
-
         p {
             margin-bottom: 1rem;
             font-size: 0.95rem;
         }
 
-        /* Header */
         header {
             text-align: center;
             margin-bottom: 3rem;
@@ -112,7 +106,6 @@
             margin-top: 0.5rem;
         }
 
-        /* Sections / Cards */
         .section-card {
             background: var(--bg-light);
             border: 1px solid var(--border);
@@ -137,11 +130,13 @@
         .section-number {
             color: var(--primary);
             font-weight: 700;
-            margin-right: 10px;
-            opacity: 0.5;
+            margin-right: 12px;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Lists */
         ul {
             list-style: none;
             padding-left: 0.5rem;
@@ -165,13 +160,6 @@
             border-radius: 50%;
         }
 
-        .inner-list li::before {
-            background-color: var(--text-light);
-            width: 4px;
-            height: 4px;
-        }
-
-        /* Highlight Boxes */
         .price-box {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -199,7 +187,6 @@
             margin-top: 5px;
         }
 
-        /* Signatures */
         .signatures {
             margin-top: 4rem;
             display: flex;
@@ -214,22 +201,6 @@
             font-size: 0.85rem;
         }
 
-        .sign-block strong {
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-light);
-            border-top: 1px solid var(--border);
-            padding-top: 1.5rem;
-        }
-
-        /* Digital Signature Style */
         .signature-line {
             cursor: pointer;
             border-bottom: 2px dashed var(--border);
@@ -252,25 +223,18 @@
             padding: 0 10px;
         }
 
-        /* Print Settings */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
         @media print {
-            body {
-                background-color: var(--white);
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-
-            .paper {
-                box-shadow: none !important;
-                margin: 0 !important;
-                width: 100% !important;
-                padding: 0 !important;
-                border: none !important;
-            }
-
-            .section-card {
-                border: 1px solid #ddd;
-            }
+            body { background-color: white; padding: 0 !important; }
+            .paper { box-shadow: none !important; width: 100% !important; border: none !important; }
         }
     </style>
 </head>
@@ -280,145 +244,81 @@
     <main class="paper">
         <header>
             <img src="./logo.jpg" alt="Prime Team Dev Logo" class="logo">
-            <h1>PROPOSTA</h1>
-            <div class="subtitle">Landing Page com Agente de IA </div>
+            <h1><i class="fa-solid fa-code" style="margin-right: 12px; color: var(--accent);"></i>PROPOSTA</h1>
+            <div class="subtitle">Landing Page com Agente de IA</div>
         </header>
 
         <div class="section-card">
-            <h2><span class="section-number">3</span> Itens fora do escopo (não inclusos)</h2>
+            <h2><span class="section-number"><i class="fa-solid fa-terminal" style="font-size: 0.8rem; opacity: 0.5;"></i> 1</span> O Projeto</h2>
+            <p>Desenvolvimento de uma Landing Page de alta conversão integrada com um Agente de Inteligência Artificial para atendimento automatizado, focado em transformar visitantes em clientes.</p>
+        </div>
+
+        <div class="section-card">
+            <h2><span class="section-number"><i class="fa-solid fa-terminal" style="font-size: 0.8rem; opacity: 0.5;"></i> 2</span> Escopo</h2>
             <ul>
-                <li>Gestão de tráfego pago/anúncios</li>
-                <li>Produção profissional de fotos e vídeos</li>
-                <li>Criação contínua de posts para redes sociais</li>
-                <li>Integrações avançadas (CRM, prontuário, pagamentos), sob orçamento à parte</li>
-                <li>E-mail profissional (removido do escopo)</li>
+                <li>Layout moderno e responsivo (PC e Celular)</li>
+                <li>Agente de IA treinado para FAQ e agendamentos</li>
+                <li>Integração com WhatsApp</li>
+                <li>Otimização SEO de carregamento</li>
             </ul>
         </div>
 
         <div class="section-card">
-            <h2><span class="section-number">4</span> Prazos e entregas</h2>
-            <p><strong>Prazo de entrega:</strong> até 48 horas úteis, contado a partir de:</p>
-            <ul>
-                <li>confirmação do pagamento de entrada; e</li>
-                <li>envio/aprovação dos materiais pela contratante (textos, fotos, serviços, links).</li>
-            </ul>
-            <p style="margin-top: 10px;"><strong>Revisões:</strong> 1 rodada de ajustes (textos/layout) dentro do
-                escopo.</p>
-        </div>
-
-        <div class="section-card">
-            <h2><span class="section-number">5</span> Domínio (opcional)</h2>
-            <p>O domínio pode ser registrado em nome do contratante, garantindo autonomia e controle sobre o endereço
-                oficial.</p>
-            <ul>
-                <li><strong>Domínio .com (estimado):</strong> R$ 40/ano (sujeito a disponibilidade e variação do
-                    registrador)</li>
-            </ul>
-            <p style="font-size: 0.8rem; font-style: italic; margin-top: 5px; color: var(--text-light);">
-                Observação: Custos de domínio/renovação são de responsabilidade do contratante.
-            </p>
-        </div>
-
-        <div class="section-card">
-            <h2><span class="section-number">6</span> Manutenção e suporte</h2>
-            <ul>
-                <li>3 meses de manutenção gratuita após a entrega (ajustes e correções dentro do escopo).</li>
-                <li><strong>Após esse período:</strong>
-                    <ul class="inner-list" style="margin-top: 8px;">
-                        <li>Alterações simples (ex.: nome, número, pequenos textos): Gratuitas</li>
-                        <li>Alterações complexas (ex.: imagens/vídeos, novas seções, mudanças estruturais): R$ 60 no mês
-                            em que houver necessidade, sem mensalidade fixa.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section-card">
-            <h2><span class="section-number">7</span> Investimento e condições comerciais</h2>
+            <h2><span class="section-number"><i class="fa-solid fa-terminal" style="font-size: 0.8rem; opacity: 0.5;"></i> 3</span> Investimento</h2>
             <div class="price-box">
                 <div class="price-item">
-                    <span class="label">Pacote LP + Agente de IA</span>
+                    <span class="label">Valor Total</span>
                     <span class="value">R$ 800,00</span>
                 </div>
                 <div class="price-item" style="background: var(--accent);">
-                    <span class="label">Com domínio .com (est.)</span>
+                    <span class="label">Com Domínio</span>
                     <span class="value">R$ 840,00</span>
                 </div>
             </div>
-            <p style="margin-top: 1.2rem;"><strong>Formas de pagamento:</strong></p>
-            <ul>
-                <li>50% na entrada (início do projeto)</li>
-                <li>50% na entrega/publicação</li>
-            </ul>
         </div>
 
         <div class="section-card">
-            <h2><span class="section-number">8</span> Responsabilidades da contratante</h2>
-            <p>Para cumprir o prazo de 48h úteis, a contratante deverá fornecer:</p>
-            <ul>
-                <li>textos e informações dos atendimentos;</li>
-                <li>fotos/imagens (se houver);</li>
-                <li>links (WhatsApp e Instagram);</li>
-                <li>endereço e dados de atendimento (se aplicável).</li>
-            </ul>
-        </div>
-
-        <div class="section-card">
-            <h2><span class="section-number">9</span> Aceite e próximos passos</h2>
-            <ol style="padding-left: 1.5rem; font-size: 0.95rem;">
-                <li style="margin-bottom: 5px;">Confirmação do aceite desta proposta</li>
-                <li style="margin-bottom: 5px;">Envio dos materiais e dados</li>
-                <li style="margin-bottom: 5px;">Pagamento de entrada</li>
-                <li style="margin-bottom: 5px;">Início imediato e entrega em até 48h úteis</li>
-            </ol>
+            <h2><span class="section-number"><i class="fa-solid fa-terminal" style="font-size: 0.8rem; opacity: 0.5;"></i> 4</span> Aceite e Próximos Passos</h2>
+            <p>Para iniciar o projeto, basta realizar a assinatura digital abaixo e efetuar o pagamento da entrada (50%).</p>
         </div>
 
         <div class="signatures">
             <div class="sign-block">
                 <strong>Prime Team Dev</strong>
-
                 Nome: Yan Isonel Pereira<br>
                 Data: 13/04/2026
             </div>
             <div class="sign-block">
                 <strong>Contratante</strong>
-                Assinatura: <span id="signature-area" class="signature-line" onclick="signProposal()">clique para
-                    assinar</span><br>
-                Nome: Priscila<br>
+                Assinatura: <span id="signature-area" class="signature-line" onclick="signProposal()">clique para assinar</span><br>
                 Data: <span id="signature-date">____ / ____ / ________</span>
             </div>
         </div>
 
         <footer>
-            Prime Team Dev — Proposta Comercial | 13 de Abril de 2026
+            Prime Team Dev — Proposta Comercial | 2026
         </footer>
     </main>
 
     <script>
         function signProposal() {
-            const name = prompt("Digite seu nome completo para assinar digitalmente:");
+            const name = prompt("Digite seu nome completo para assinar:");
             if (name && name.trim() !== "") {
                 const area = document.getElementById('signature-area');
                 area.innerHTML = name;
                 area.classList.add('signed');
-                area.onclick = null; // Removo o clique após assinar
+                area.onclick = null;
 
                 const today = new Date();
-                const day = String(today.getDate()).padStart(2, '0');
-                const month = String(today.getMonth() + 1).padStart(2, '0');
-                const year = today.getFullYear();
-                document.getElementById('signature-date').innerHTML = `${day} / ${month} / ${year}`;
+                document.getElementById('signature-date').innerHTML = today.toLocaleDateString('pt-BR');
 
-                // Redirecionamento para WhatsApp
                 setTimeout(() => {
-                    const message = encodeURIComponent("olá assinei a proposta e concordo, podemos seguir com a contratação");
-                    const phone = "5535984688884";
-                    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+                    const message = encodeURIComponent("Olá, acabei de assinar a proposta da Landing Page e concordo com os termos. Podemos seguir!");
+                    window.open(`https://wa.me/5535984688884?text=${message}`, '_blank');
                 }, 1000);
             }
         }
     </script>
 
 </body>
-
 </html>
