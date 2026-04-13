@@ -6,33 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proposta Comercial - Landing Page com IA</title>
 
-    <!-- Favicon Web (Ícone </> Estilizado) -->
+    <!-- Favicon Web (Ícone Dev </>) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 fill=%22%234f46e5%22 font-family=%22monospace%22 font-weight=%22bold%22>&lt;/&gt;</text></svg>">
 
-    <!-- SEO & Social Meta Tags -->
-    <meta name="description"
-        content="Proposta comercial Landing Page profissional com Agente de IA.">
-    <meta property="og:title" content="Proposta Comercial - Landing Page com IA">
-    <meta property="og:description"
-        content="Confira os detalhes do seu projeto de Landing Page com Inteligência Artificial.">
-    <meta property="og:type" content="website">
-
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap');
-
         :root {
             --primary: #4f46e5;
             --primary-dark: #3730a3;
             --accent: #7c3aed;
             --text-main: #1f2937;
             --text-light: #6b7280;
-            --bg-light: #f9fafb;
+            --bg-page: #f3f4f6;
             --white: #ffffff;
             --border: #e5e7eb;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
         /* A4 Setup */
@@ -53,7 +47,7 @@
             font-family: 'Inter', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-main);
-            background-color: #d1d5db;
+            background-color: var(--bg-page);
             padding: 40px 0;
         }
 
@@ -63,34 +57,28 @@
             min-height: 297mm;
             margin: 0 auto;
             padding: 20mm;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             position: relative;
         }
 
-        h1 {
-            font-weight: 700;
-            font-size: 2.4rem;
-            letter-spacing: -0.025em;
-            color: var(--primary-dark);
-        }
-
-        h2 {
-            font-weight: 600;
-            font-size: 1.25rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
+        /* Header */
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .logo {
             width: 160px;
+            height: auto;
             margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            letter-spacing: 0.1em;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
         }
 
         .subtitle {
@@ -98,15 +86,15 @@
             color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-top: 0.5rem;
         }
 
+        /* Section Styling */
         .section-card {
-            background: var(--bg-light);
+            background: #fafafa;
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             position: relative;
             break-inside: avoid;
         }
@@ -114,50 +102,110 @@
         .section-card::before {
             content: '';
             position: absolute;
-            left: 0; top: 20px; bottom: 20px; width: 4px;
+            left: 0; top: 15px; bottom: 15px;
+            width: 5px;
             background: linear-gradient(to bottom, var(--primary), var(--accent));
             border-radius: 0 4px 4px 0;
         }
 
-        .section-number {
-            color: var(--primary);
+        h2 {
             font-weight: 700;
-            margin-right: 12px;
-            opacity: 0.7;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 8px;
         }
 
-        ul { list-style: none; padding-left: 0.5rem; }
-        li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .section-icon {
+            font-size: 0.9rem;
+            margin-right: 10px;
+            color: var(--accent);
+            opacity: 0.7;
+        }
+
+        /* Lists */
+        ul { list-style: none; }
+        li { position: relative; padding-left: 1.5rem; margin-bottom: 0.6rem; font-size: 0.95rem; }
         li::before {
-            content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px;
-            background-color: var(--accent); border-radius: 50%;
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
         }
 
-        .price-box { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-        .price-item { background: var(--primary-dark); color: white; padding: 1.2rem; border-radius: 6px; text-align: center; }
-        .price-item .value { font-size: 1.4rem; font-weight: 700; display: block; margin-top: 5px; }
-
-        .signatures { margin-top: 4rem; display: flex; justify-content: space-between; gap: 40px; }
-        .sign-block { flex: 1; border-top: 1px solid #000; padding-top: 10px; font-size: 0.85rem; }
-
-        .signature-line {
-            cursor: pointer; border-bottom: 2px dashed var(--border); min-width: 200px;
-            display: inline-block; transition: all 0.3s ease; color: var(--text-light);
+        .price-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        .signed { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--primary-dark); border-bottom: none; }
+        .price-card {
+            background: var(--primary-dark);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
 
+        .price-card.accent { background: var(--accent); }
+
+        .price-card .label { font-size: 0.8rem; opacity: 0.8; text-transform: uppercase; }
+        .price-card .value { font-size: 1.6rem; font-weight: 700; display: block; margin-top: 5px; }
+
+        /* Signatures */
+        .signatures {
+            margin-top: 5rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .sign-block {
+            flex: 1;
+            border-top: 1px solid #c0c0c0;
+            padding-top: 15px;
+        }
+
+        .sign-block strong { display: block; margin-bottom: 5px; color: var(--primary-dark); }
+        .sign-label { font-size: 0.85rem; color: var(--text-light); }
+
+        .signature-interactive {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            min-height: 40px;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .signature-placeholder {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+            border-bottom: 1px dashed var(--border);
+            padding: 0 10px;
+        }
+
+        /* Footer */
         footer {
-            margin-top: 3rem; text-align: center; font-size: 0.75rem; color: var(--text-light);
-            border-top: 1px solid var(--border); padding-top: 1.5rem;
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
         }
 
+        /* Print Hacks */
         @media print {
-            body { background: white; padding: 0 !important; }
-            .paper { box-shadow: none !important; width: 100% !important; }
+            body { background: white; padding: 0; }
+            .paper { box-shadow: none; width: 100%; height: auto; margin: 0; padding: 0; }
+            .section-card { border: 1px solid #eee; background: white; }
         }
     </style>
 </head>
@@ -166,71 +214,146 @@
 
     <main class="paper">
         <header>
-            <img src="data:image/jpeg;base64,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" alt="Prime Team Dev Logo" class="logo">
-            <h1><i class="fa-solid fa-code" style="margin-right: 12px; color: var(--accent);"></i>PROPOSTA</h1>
-            <div class="subtitle">Landing Page com Agente de IA</div>
+            <img src="https://drive.google.com/uc?export=view&id=1hwcPL9Gw9bPu1skcUi3ROo7Fp4GW3iAF" alt="Prime Team Dev Logo" class="logo">
+            <h1>PROPOSTA</h1>
+            <div class="subtitle">Landing Page com Agente de IA — Priscila (Fonoaudióloga)</div>
         </header>
 
+        <!-- Seção 3 -->
         <div class="section-card">
-            <h2><span class="section-number"><i class="fa-solid fa-terminal" style="font-size: 0.8rem; opacity: 0.5;"></i> 1</span> O Projeto</h2>
-            <p>Desenvolvimento de uma Landing Page estratégica integrada com um Agente de Inteligência Artificial para atendimento automatizado 24/7.</p>
-        </div>
-
-        <div class="section-card">
-            <h2><span class="section-number"><i class="fa-solid fa-terminal" style="font-size: 0.8rem; opacity: 0.5;"></i> 2</span> Prazos</h2>
+            <h2><i class="fa-solid fa-ban section-icon"></i> 3) Itens fora do escopo (não inclusos)</h2>
             <ul>
-                <li><strong>Entrega Final:</strong> Em até 48 horas úteis após o início oficial.</li>
+                <li>Gestão de tráfego pago/anúncios</li>
+                <li>Produção profissional de fotos e vídeos</li>
+                <li>Criação contínua de posts para redes sociais</li>
+                <li>Integrações avançadas (CRM, prontuário, pagamentos), sob orçamento à parte</li>
+                <li>E-mail profissional (removido do escopo)</li>
             </ul>
         </div>
 
+        <!-- Seção 4 -->
         <div class="section-card">
-            <h2><span class="section-number"><i class="fa-solid fa-terminal" style="font-size: 0.8rem; opacity: 0.5;"></i> 3</span> Investimento</h2>
-            <div class="price-box">
-                <div class="price-item">
-                    <span class="label">Pacote Especial</span>
+            <h2><i class="fa-solid fa-clock section-icon"></i> 4) Prazos e entregas</h2>
+            <p style="margin-bottom: 10px;"><strong>Prazo de entrega:</strong> até 48 horas úteis, contado a partir de:</p>
+            <ul style="margin-bottom: 10px;">
+                <li>confirmação do pagamento de entrada; e</li>
+                <li>envio/aprovação dos materiais pela contratante (textos, fotos, serviços, links).</li>
+            </ul>
+            <p><strong>Revisões:</strong> 1 rodada de ajustes (textos/layout) dentro do escopo.</p>
+        </div>
+
+        <!-- Seção 5 -->
+        <div class="section-card">
+            <h2><i class="fa-solid fa-globe section-icon"></i> 5) Domínio (opcional)</h2>
+            <p>O domínio pode ser registrado em nome do contratante, garantindo autonomia e controle total sobre o endereço.</p>
+            <ul style="margin-top: 10px;">
+                <li><strong>Domínio .com (estimado):</strong> R$ 40/ano (sujeito a disponibilidade).</li>
+            </ul>
+            <p style="font-size: 0.85rem; font-style: italic; margin-top: 8px; color: var(--text-light);">
+                * Observação: Custos de domínio/renovação são de responsabilidade direta do contratante.
+            </p>
+        </div>
+
+        <!-- Seção 6 -->
+        <div class="section-card">
+            <h2><i class="fa-solid fa-headset section-icon"></i> 6) Manutenção e suporte</h2>
+            <ul style="margin-bottom: 10px;">
+                <li><strong>Garantia:</strong> 3 meses de manutenção gratuita após a entrega (ajustes e correções dentro do escopo).</li>
+            </ul>
+            <p><strong>Após esse período:</strong></p>
+            <ul style="background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #eee;">
+                <li>Alterações simples (ex.: nome, número, pequenos textos): <strong>Gratuitas</strong></li>
+                <li>Alterações complexas (ex.: imagens/vídeos, novas seções): <strong>R$ 60</strong> no mês em que houver necessidade (sem mensalidade fixa).</li>
+            </ul>
+        </div>
+
+        <!-- Seção 7 -->
+        <div class="section-card">
+            <h2><i class="fa-solid fa-sack-dollar section-icon"></i> 7) Investimento e condições comerciais</h2>
+            <div class="price-grid">
+                <div class="price-card">
+                    <span class="label">LP + Agente de IA</span>
                     <span class="value">R$ 800,00</span>
+                    <span style="font-size: 0.7rem;">(Sem domínio)</span>
                 </div>
-                <div class="price-item" style="background: var(--accent);">
-                    <span class="label">Com Domínio</span>
+                <div class="price-card accent">
+                    <span class="label">Pacote com Domínio</span>
                     <span class="value">R$ 840,00</span>
+                    <span style="font-size: 0.7rem;">(Domínio .com incluso)</span>
                 </div>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.85rem;">Pagamento: 50% na entrada e 50% na entrega.</p>
+            <p><strong>Forma de pagamento:</strong></p>
+            <ul>
+                <li>50% na entrada (Início imediato do projeto)</li>
+                <li>50% na entrega e publicação final</li>
+            </ul>
+        </div>
+
+        <!-- Seção 8 -->
+        <div class="section-card">
+            <h2><i class="fa-solid fa-list-check section-icon"></i> 8) Responsabilidades da contratante</h2>
+            <p>Para cumprimento do prazo de 48h, a contratante deverá fornecer:</p>
+            <ul>
+                <li>Textos principais e informações dos atendimentos;</li>
+                <li>Fotos e imagens (se houver);</li>
+                <li>Links (WhatsApp e Instagram);</li>
+                <li>Endereço e dados de atendimento detalhados.</li>
+            </ul>
+        </div>
+
+        <!-- Seção 9 -->
+        <div class="section-card">
+            <h2><i class="fa-solid fa-circle-play section-icon"></i> 9) Aceite e próximos passos</h2>
+            <ol style="margin-left: 1.2rem; font-size: 0.95rem;">
+                <li>Confirmação do aceite desta proposta</li>
+                <li>Envio dos materiais solicitados</li>
+                <li>Pagamento da entrada (50%)</li>
+                <li>Início imediato com entrega em até 48h úteis</li>
+            </ol>
         </div>
 
         <div class="signatures">
             <div class="sign-block">
                 <strong>Prime Team Dev</strong>
-                Nome: Yan Isonel Pereira<br>
-                Data: 13/04/2026
+                <span class="sign-label">Responsável: Yan Isonel Pereira</span><br>
+                <span class="sign-label">Data: 13/04/2026</span>
             </div>
             <div class="sign-block">
-                <strong>Contratante</strong>
-                Assinatura: <span id="signature-area" class="signature-line" onclick="signProposal()">clique para assinar</span><br>
-                Data: <span id="signature-date">____ / ____ / ________</span>
+                <strong>Contratante (Priscila)</strong>
+                <div id="sign-target" class="signature-placeholder" onclick="handleSignature()">Clique aqui para assinar digitalmente</div>
+                <br>
+                <span class="sign-label">Data: <span id="sign-date">__ / __ / ____</span></span>
             </div>
         </div>
 
         <footer>
-            Prime Team Dev — Proposta Comercial | 2026
+            Prime Team Dev — Proposta Comercial | Emitida em 13 de Abril de 2026
         </footer>
     </main>
 
     <script>
-        function signProposal() {
-            const name = prompt("Digite seu nome completo:");
+        function handleSignature() {
+            const name = prompt("Digite seu nome completo para assinar esta proposta:");
             if (name && name.trim() !== "") {
-                const area = document.getElementById('signature-area');
-                area.innerHTML = name;
-                area.classList.add('signed');
-                area.onclick = null;
-                document.getElementById('signature-date').innerHTML = new Date().toLocaleDateString('pt-BR');
+                const target = document.getElementById('sign-target');
+                target.innerText = name;
+                target.className = "signature-interactive";
+                target.onclick = null;
+
+                const today = new Date();
+                const dateStr = today.toLocaleDateString('pt-BR');
+                document.getElementById('sign-date').innerText = dateStr;
+
+                // Redirecionamento Automático para WhatsApp
                 setTimeout(() => {
-                    const message = encodeURIComponent("olá assinei a proposta e concordo, podemos seguir com a contratação");
-                    window.open(`https://wa.me/5535984688884?text=${message}`, '_blank');
+                    const phone = "5535984688884";
+                    const msg = encodeURIComponent("Olá Yan! Acabei de assinar a proposta da Landing Page (Priscila) e concordo com os termos. Podemos seguir com a contratação!");
+                    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
                 }, 1000);
             }
         }
     </script>
+
 </body>
+
 </html>
