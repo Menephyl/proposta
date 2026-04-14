@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contrato — Prime Team Dev x Priscila</title>
+
+    <style>
+        :root {
+            --ink: #0f172a;
+            --muted: #475569;
+            --line: #e2e8f0;
+            --bg: #f6f7fb;
+            --accent: #4f46e5;
+            --accent2: #06b6d4;
+        }
+
+        @page {
+            size: A4;
+            margin: 18mm;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font: 14px/1.55 Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        .wrap {
+            max-width: 980px;
+            margin: 24px auto;
+            padding: 0 16px;
+        }
+
+        .sheet {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, .06);
+        }
+
+        header {
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--line);
+            background:
+                radial-gradient(1000px 240px at 20% 0%, rgba(79, 70, 229, .14), transparent 60%),
+                radial-gradient(900px 220px at 85% 10%, rgba(6, 182, 212, .12), transparent 55%),
+                #fff;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .brand img {
+            width: 140px;
+            height: auto;
+            display: block;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 16px;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .sub {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--ink);
+            padding: 10px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        .primary {
+            border: none;
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+        }
+
+        .content {
+            padding: 18px 22px 22px;
+        }
+
+        .box {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px 12px;
+            color: var(--muted);
+            margin: 10px 0 14px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .note {
+            margin-top: 10px;
+            padding: 10px 12px;
+            border-left: 4px solid rgba(79, 70, 229, .55);
+            background: rgba(79, 70, 229, .05);
+            color: var(--muted);
+            border-radius: 8px;
+        }
+
+        .clause {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin: 10px 0;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .clause h2 {
+            margin: 0 0 6px;
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        p {
+            margin: 6px 0;
+            color: var(--muted);
+        }
+
+        ul,
+        ol {
+            margin: 6px 0 6px 18px;
+            color: var(--muted);
+        }
+
+        strong {
+            color: var(--ink);
+        }
+
+        .sign {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 12px;
+        }
+
+        .sigbox {
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 12px 14px;
+            color: var(--muted);
+            min-height: 120px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .sigline {
+            margin-top: 10px;
+            border-bottom: 1px solid #cbd5e1;
+            height: 1px;
+        }
+
+        .sigimg {
+            max-width: 100%;
+            max-height: 90px;
+            display: block;
+            margin-top: 8px;
+        }
+
+        footer {
+            padding: 10px 22px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 12px;
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* modal assinatura */
+        .backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, .55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+        }
+
+        .modal {
+            width: min(860px, 100%);
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
+        }
+
+        .modal header {
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+            padding: 12px 14px;
+        }
+
+        .modal header h3 {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .modal .body {
+            padding: 14px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0 0 6px;
+            font-weight: 700;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            outline: none;
+            font-weight: 600;
+        }
+
+        .pad {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px;
+            background: #fbfdff;
+        }
+
+        canvas {
+            width: 100%;
+            height: 180px;
+            display: block;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+        }
+
+        .modal .footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            padding: 12px 14px;
+            border-top: 1px solid var(--line);
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .wrap {
+                margin: 0;
+                padding: 0;
+                max-width: none;
+            }
+
+            .sheet {
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            .actions {
+                display: none;
+            }
+
+            .backdrop {
+                display: none !important;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+
+        @media(max-width:860px) {
+            .sign {
+                grid-template-columns: 1fr;
+            }
+
+            .modal .body {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="sheet">
+            <header>
+                <div class="top">
+                    <div class="brand">
+                        <img src="./assets/logo.jpg" alt="Prime Team">
+                        <div>
+                            <h1>Contrato de Prestação de Serviços</h1>
+                            <div class="sub">Landing Page com Agente de IA — Priscila (Fonoaudióloga)</div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button id="btnPrint" type="button">Imprimir / PDF</button>
+                        <button id="btnSign" class="primary" type="button">Assinar</button>
+                        <button id="btnWhats" type="button">Enviar aceite no WhatsApp</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content">
+
+                <div class="box">
+                    <strong>Importante:</strong> este documento serve para <strong>alinhar escopo, prazos e
+                        responsabilidades</strong>,
+                    trazendo transparência e segurança para ambas as partes. Nosso compromisso principal segue sendo a
+                    <strong>boa-fé e o acordo</strong> entre as partes.
+                </div>
+
+                <div class="box">
+                    <strong>CONTRATADO:</strong> Prime Team Dev — Yan Isonel Pereira<br>
+                    <strong>CONTRATANTE:</strong> <span id="nome">Priscila</span> — <strong>CNPJ:</strong> <span
+                        id="cnpj">[PREENCHER]</span><br>
+                    <strong>Data:</strong> <span id="data">____/____/____</span> — <strong>Valor:</strong> <span
+                        id="valor">R$ 800,00</span>
+                    <div class="note" id="dominioNote" style="display:none;">
+                        <strong>Domínio .com:</strong> selecionado na proposta (estimativa inclusa no valor escolhido).
+                    </div>
+                </div>
+
+                <div class="clause">
+                    <h2>Cláusula 1 — Objeto</h2>
+                    <p>
+                        Desenvolvimento e entrega de <strong>Landing Page</strong> com foco em agendamento via WhatsApp
+                        e implementação de
+                        <strong>Agente de IA (chat no site)</strong> para atendimento inicial.
+                    </p>
+                    <p>
+                        O agente de IA atua de forma informativa e de direcionamento, não realizando diagnósticos e não
+                        substituindo avaliação profissional.
+                    </p>
+                </div>
+
+                <div class="clause">
+                    <h2>Cláusula 2 — Prazo</h2>
+                    <p>
+                        A entrega ocorrerá em até <strong>48 (quarenta e oito) horas úteis</strong>, contadas a partir
+                        da ocorrência conjunta dos seguintes marcos:
+                    </p>
+                    <ul>
+                        <li>aceite deste contrato;</li>
+                        <li>pagamento da primeira parcela (entrada); e</li>
+                        <li>envio/aprovação dos materiais necessários (textos, fotos/imagens se houver, links e dados).
+                        </li>
+                    </ul>
+                    <p>
+                        O contratado executará o projeto dentro dos limites técnicos, operacionais e de integrações
+                        disponíveis em ferramentas, plataformas, APIs
+                        e demais serviços de terceiros utilizados, não respondendo por funcionalidades inexistentes,
+                        restrições externas ou bloqueios impostos por terceiros [1].
+                    </p>
+                    <p>
+                        Qualquer item não expressamente previsto neste contrato (novas automações, novos canais, novas
+                        integrações, novos fluxos, novas telas,
+                        relatórios, dashboards ou funcionalidades fora do escopo inicial) poderá ser considerado serviço
+                        adicional, sujeito a novo orçamento [1].
+                    </p>
+                </div>
+
+                <div class="clause">
+                    <h2>Cláusula 3 — Valor e pagamento</h2>
+                    <p>
+                        Valor total: <strong><span id="valor2">R$ 800,00</span></strong>.
+                    </p>
+                    <ul>
+                        <li>50% na entrada (início do projeto)</li>
+                        <li>50% na entrega/publicação</li>
+                    </ul>
+                    <p>
+                        Domínio (.com) é opcional e poderá estar selecionado na proposta, ajustando o valor total
+                        conforme escolha.
+                    </p>
+                </div>
+
+                <div class="clause">
+                    <h2>Cláusula 4 — Manutenção</h2>
+                    <ul>
+                        <li>3 meses de manutenção gratuita (dentro do escopo).</li>
+                        <li>Após: alterações simples gratuitas; alterações complexas: R$ 60 no mês de demanda.</li>
+                    </ul>
+                </div>
+
+                <div class="clause">
+                    <h2>Cláusula 5 — Obrigações da contratante</h2>
+                    <ul>
+                        <li>Fornecer informações, materiais e acessos necessários à execução.</li>
+                        <li>Disponibilizar retorno para aprovações e alinhamentos quando solicitado.</li>
+                        <li>Validar conteúdo e informações para publicação.</li>
+                    </ul>
+                    <p>
+                        A contratante declara ciência de que o desempenho da solução depende também da qualidade das
+                        informações fornecidas,
+                        estabilidade de serviços de terceiros e operação interna do negócio [1].
+                    </p>
+                </div>
+
+                <div class="clause">
+                    <h2>Cláusula 6 — Validação e aceite da entrega</h2>
+                    <p>
+                        Considera-se concluída a etapa de desenvolvimento quando o contratado disponibilizar ao
+                        contratante a solução implementada conforme o escopo contratado [1].
+                    </p>
+                    <p>
+                        Após a disponibilização da entrega, o contratante terá prazo de <strong>5 (cinco) dias
+                            úteis</strong> para apontar eventual desconformidade objetiva com o escopo pactuado [1].
+                    </p>
+                    <p>
+                        Não havendo manifestação no prazo acima, considerar-se-á a entrega tacitamente aceita, tornando
+                        exigível a segunda parcela [1].
+                    </p>
+                    <p>
+                        Ajustes pequenos e correções pontuais compatíveis com o escopo inicial não descaracterizam a
+                        conclusão do projeto [1].
+                    </p>
+                </div>
+
+                <div class="clause">
+                    <h2>Cláusula 7 — Alterações de escopo</h2>
+                    <p>
+                        Qualquer solicitação de alteração, ampliação, adaptação substancial, nova etapa, nova automação,
+                        nova regra de negócio,
+                        nova integração ou nova funcionalidade fora do objeto será considerada alteração de escopo [1].
+                    </p>
+                    <p>
+                        As alterações de escopo poderão gerar: <strong>novo prazo</strong> e <strong>novo
+                            orçamento</strong> [1].
+                    </p>
+                </div>
+
+                <div class="clause">
+                    <h2>Cláusula 8 — Foro</h2>
+                    <p>
+                        Fica eleito o foro da comarca de <strong>Três Corações/MG</strong>, renunciando a qualquer
+                        outro, por mais privilegiado que seja.
+                    </p>
+                </div>
+
+                <div class="clause">
+                    <h2>Assinaturas</h2>
+
+                    <div class="sign">
+                        <div class="sigbox">
+                            <strong>CONTRATADO</strong><br>
+                            Prime Team Dev — Yan Isonel Pereira
+                            <div class="sigline"></div>
+                            Assinatura: ___________________________<br>
+                            Data: 13/04/2026
+                        </div>
+
+                        <div class="sigbox">
+                            <strong>CONTRATANTE</strong><br>
+                            <span id="nome2">Priscila</span>
+                            <div class="sigline"></div>
+
+                            <div id="sigPreviewWrap" style="display:none;">
+                                <img id="sigPreview" class="sigimg" alt="Assinatura da contratante">
+                            </div>
+                            <div id="sigEmpty">Assinatura: ___________________________</div>
+
+                            Data: <span id="data2">____/____/____</span><br>
+                            CNPJ: <span id="cnpj2">[PREENCHER]</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer>
+                <div>Prime Team Dev — Contrato (Landing Page + Agente de IA)</div>
+                <div id="footerDate"></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODAL ASSINATURA -->
+    <div class="backdrop" id="backdrop" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true">
+            <header>
+                <h3>Assinar contrato</h3>
+            </header>
+
+            <div class="body">
+                <div>
+                    <div class="field" style="margin-bottom:10px;">
+                        <label>Nome / Razão Social</label>
+                        <input id="inpNome" placeholder="Digite seu nome ou razão social" />
+                    </div>
+
+                    <div class="field" style="margin-bottom:10px;">
+                        <label>CNPJ</label>
+                        <input id="inpCnpj" placeholder="00.000.000/0000-00" />
+                    </div>
+
+                    <div class="field">
+                        <label>Data</label>
+                        <input id="inpData" placeholder="dd/mm/aaaa" />
+                    </div>
+
+                    <div class="note">
+                        Dica: assine com o mouse (ou dedo no celular). Depois clique em <strong>Aplicar
+                            assinatura</strong>.
+                    </div>
+                </div>
+
+                <div class="pad">
+                    <label style="display:block;font-size:12px;color:var(--muted);margin:0 0 8px;font-weight:800;">
+                        Assinatura (mouse/toque)
+                    </label>
+                    <canvas id="sigPad" width="900" height="360"></canvas>
+                    <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:10px;">
+                        <button type="button" id="btnClear">Limpar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <button type="button" id="btnCancel">Cancelar</button>
+                <button type="button" class="primary" id="btnApply">Aplicar assinatura</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const $ = (s) => document.querySelector(s);
+
+        // Footer date
+        const now = new Date();
+        $("#footerDate").textContent = "Gerado em: " + now.toLocaleDateString("pt-BR");
+
+        // Print
+        $("#btnPrint").addEventListener("click", () => window.print());
+
+        // Helpers
+        function onlyDigits(str) { return (str || "").replace(/\\D/g, ""); }
+        function isValidCNPJBasic(cnpj) { return onlyDigits(cnpj).length === 14; }
+        function todayBR() {
+            const d = new Date();
+            const dd = String(d.getDate()).padStart(2, "0");
+            const mm = String(d.getMonth() + 1).padStart(2, "0");
+            const yyyy = d.getFullYear();
+            return `${dd}/${mm}/${yyyy}`;
+        }
+
+        // Load payload from proposal
+        function loadPayload() {
+            try {
+                const raw = localStorage.getItem("prime_proposta_priscila");
+                if (!raw) return null;
+                return JSON.parse(raw);
+            } catch (e) { return null; }
+        }
+
+        // Apply payload to page
+        const payload = loadPayload();
+        if (payload) {
+            const nome = payload.nome || "Priscila";
+            const cnpj = payload.cnpj || "[PREENCHER]";
+            const data = payload.data || "____/____/____";
+            const valor = payload.valor || "R$ 800,00";
+
+            $("#nome").textContent = nome;
+            $("#nome2").textContent = nome;
+            $("#cnpj").textContent = cnpj;
+            $("#cnpj2").textContent = cnpj;
+            $("#data").textContent = data;
+            $("#data2").textContent = data;
+            $("#valor").textContent = valor;
+            $("#valor2").textContent = valor;
+
+            if (payload.comDominio) {
+                $("#dominioNote").style.display = "block";
+            }
+        }
+
+        // Modal open/close
+        const backdrop = $("#backdrop");
+        const openModal = () => { backdrop.style.display = "flex"; backdrop.setAttribute("aria-hidden", "false"); };
+        const closeModal = () => { backdrop.style.display = "none"; backdrop.setAttribute("aria-hidden", "true"); };
+
+        $("#btnSign").addEventListener("click", () => {
+            // default date
+            $("#inpData").value = todayBR();
+
+            // prefill name/cnpj from page if exists
+            $("#inpNome").value = ($("#nome").textContent || "Priscila").trim();
+
+            const cnpjTxt = ($("#cnpj").textContent || "").trim();
+            $("#inpCnpj").value = cnpjTxt.startsWith("[") ? "" : cnpjTxt;
+
+            openModal();
+        });
+
+        $("#btnCancel").addEventListener("click", closeModal);
+        backdrop.addEventListener("click", (e) => { if (e.target === backdrop) closeModal(); });
+
+        // Signature pad
+        const canvas = $("#sigPad");
+        const ctx = canvas.getContext("2d");
+        ctx.lineWidth = 3;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "#0f172a";
+
+        let drawing = false;
+        let last = { x: 0, y: 0 };
+
+        function getPos(ev) {
+            const rect = canvas.getBoundingClientRect();
+            const isTouch = ev.touches && ev.touches[0];
+            const cx = isTouch ? ev.touches[0].clientX : ev.clientX;
+            const cy = isTouch ? ev.touches[0].clientY : ev.clientY;
+            return { x: (cx - rect.left) * (canvas.width / rect.width), y: (cy - rect.top) * (canvas.height / rect.height) };
+        }
+
+        function start(ev) { drawing = true; last = getPos(ev); ev.preventDefault?.(); }
+        function move(ev) {
+            if (!drawing) return;
+            const pos = getPos(ev);
+            ctx.beginPath();
+            ctx.moveTo(last.x, last.y);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+            last = pos;
+            ev.preventDefault?.();
+        }
+        function end() { drawing = false; }
+
+        canvas.addEventListener("mousedown", start);
+        canvas.addEventListener("mousemove", move);
+        window.addEventListener("mouseup", end);
+
+        canvas.addEventListener("touchstart", start, { passive: false });
+        canvas.addEventListener("touchmove", move, { passive: false });
+        window.addEventListener("touchend", end);
+
+        $("#btnClear").addEventListener("click", () => ctx.clearRect(0, 0, canvas.width, canvas.height));
+
+        function canvasHasInk() {
+            const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            for (let i = 3; i < pixels.length; i += 4) {
+                if (pixels[i] !== 0) return true;
+            }
+            return false;
+        }
+
+        // Apply signature and fields to contract
+        $("#btnApply").addEventListener("click", () => {
+            const nome = ($("#inpNome").value || "").trim();
+            const cnpj = ($("#inpCnpj").value || "").trim();
+            const data = ($("#inpData").value || "").trim();
+
+            if (!nome) {
+                alert("Por favor, digite seu nome/razão social.");
+                $("#inpNome").focus();
+                return;
+            }
+            if (!isValidCNPJBasic(cnpj)) {
+                alert("Por favor, preencha um CNPJ válido (14 dígitos).");
+                $("#inpCnpj").focus();
+                return;
+            }
+            if (!data) {
+                alert("Por favor, preencha a data.");
+                $("#inpData").focus();
+                return;
+            }
+            if (!canvasHasInk()) {
+                alert("Por favor, desenhe a assinatura antes de aplicar.");
+                return;
+            }
+
+            const signatureDataUrl = canvas.toDataURL("image/png");
+
+            // Apply to page
+            $("#nome").textContent = nome;
+            $("#nome2").textContent = nome;
+            $("#cnpj").textContent = cnpj;
+            $("#cnpj2").textContent = cnpj;
+            $("#data").textContent = data;
+            $("#data2").textContent = data;
+
+            $("#sigPreview").src = signatureDataUrl;
+            $("#sigPreviewWrap").style.display = "block";
+            $("#sigEmpty").style.display = "none";
+
+            // Persist for refresh
+            localStorage.setItem("prime_contrato_priscila", JSON.stringify({
+                nome, cnpj, data,
+                valor: ($("#valor").textContent || "R$ 800,00").trim(),
+                signatureDataUrl
+            }));
+
+            closeModal();
+        });
+
+        // Restore signature if exists
+        (function restore() {
+            try {
+                const raw = localStorage.getItem("prime_contrato_priscila");
+                if (!raw) return;
+                const p = JSON.parse(raw);
+
+                if (p?.nome) { $("#nome").textContent = p.nome; $("#nome2").textContent = p.nome; }
+                if (p?.cnpj) { $("#cnpj").textContent = p.cnpj; $("#cnpj2").textContent = p.cnpj; }
+                if (p?.data) { $("#data").textContent = p.data; $("#data2").textContent = p.data; }
+                if (p?.valor) { $("#valor").textContent = p.valor; $("#valor2").textContent = p.valor; }
+
+                if (p?.signatureDataUrl) {
+                    $("#sigPreview").src = p.signatureDataUrl;
+                    $("#sigPreviewWrap").style.display = "block";
+                    $("#sigEmpty").style.display = "none";
+                }
+            } catch (e) { }
+        })();
+
+        // WhatsApp aceite (não envia automático; abre com texto pronto)
+        $("#btnWhats").addEventListener("click", () => {
+            const nome = ($("#nome").textContent || "Priscila").trim();
+            const cnpj = ($("#cnpj").textContent || "[PREENCHER]").trim();
+            const data = ($("#data").textContent || "____/____/____").trim();
+            const valor = ($("#valor").textContent || "R$ 800,00").trim();
+
+            const msg =
+                `ACEITE - PROPOSTA/CONTRATO (Landing Page + Agente de IA - chat no site)
+
+Contratante: ${nome}
+CNPJ: ${cnpj}
+Data: ${data}
+Valor: ${valor}
+
+Declaro que li e ACEITO a proposta e o contrato, autorizando o início do projeto após o pagamento de entrada.`;
+
+            const url = "https://wa.me/5535992144176?text=" + encodeURIComponent(msg);
+            window.open(url, "_blank");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial - Priscila (Fonoaudióloga)</title>
+    <style>
+        /* Modern CSS Reset & Core Styles */
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #eef2ff;
+            --secondary: #7c3aed;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-page: #f3f4f6;
+            --bg-card: #ffffff;
+            --border: #e5e7eb;
+            --accent: #6366f1;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* A4 Page Setup */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 18mm;
+            margin: 20px auto;
+            background: var(--bg-card);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                min-height: initial;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 2.5rem;
+        }
+
+        .logo {
+            width: 160px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-title {
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            break-inside: avoid;
+            page-break-inside: avoid;
+            position: relative;
+        }
+
+        .section-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 0 4px 4px 0;
+        }
+
+        .section-number {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-right: 12px;
+            background: var(--primary-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.6rem;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .excluded li::before {
+            content: "✕";
+            color: #ef4444;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            color: #10b981;
+        }
+
+        /* Price Table */
+        .price-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem;
+            background: var(--primary-light);
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .price-label {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .price-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Signatures */
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .sig-block {
+            border-top: 1px solid #94a3b8;
+            padding-top: 1rem;
+            text-align: center;
+        }
+
+        .sig-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Highlighting */
+        .highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 99px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Scrollbar for screen */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-page);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <!-- Header Section -->
+        <header class="header">
+            <img src="./assets/logo.jpg" alt="Prime Team Dev Logo" class="logo">
+            <h2 class="header-title">PROPOSTA COMERCIAL</h2>
+            <h1>Landing Page com Agente de IA</h1>
+            <h2>Priscila (Fonoaudióloga)</h2>
+        </header>
+
+        <!-- Seção 3: Itens fora do escopo -->
+        <section class="section-card">
+            <h3><span class="section-number">03</span> Itens fora do escopo (não inclusos)</h3>
+            <ul class="excluded">
+                <li>Gestão de tráfego pago/anúncios</li>
+                <li>Produção profissional de fotos e vídeos</li>
+                <li>Criação contínua de posts para redes sociais</li>
+                <li>Integrações avançadas (CRM, prontuário, pagamentos), sob orçamento à parte</li>
+                <li>E-mail profissional (removido do escopo)</li>
+            </ul>
+        </section>
+
+        <!-- Seção 4: Prazos e entregas -->
+        <section class="section-card">
+            <h3><span class="section-number">04</span> Prazos e entregas</h3>
+            <p>Prazo de entrega: <span class="highlight">até 48 horas úteis</span>, contado a partir de:</p>
+            <ul class="checklist" style="margin-top: 12px;">
+                <li>confirmação do pagamento de entrada; e</li>
+                <li>envio/aprovação dos materiais pela contratante (textos, fotos, serviços, links).</li>
+            </ul>
+            <p
+                style="margin-top: 12px; font-style: italic; font-size: 0.85rem; color: var(--text-muted); background: #f8fafc; padding: 10px; border-radius: 6px;">
+                <strong>Revisões:</strong> 1 rodada de ajustes (textos/layout) dentro do escopo.
+            </p>
+        </section>
+
+        <!-- Seção 5: Domínio -->
+        <section class="section-card">
+            <h3><span class="section-number">05</span> Domínio (opcional)</h3>
+            <p>O domínio pode ser registrado em nome do contratante, garantindo autonomia e controle.</p>
+            <div class="price-box" style="background: #ffffff; border: 1px dashed var(--border);">
+                <span class="price-label">Domínio .com (estimado)</span>
+                <span class="price-value" style="font-size: 1.2rem; color: var(--text-main);">R$ 40/ano</span>
+            </div>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">
+                * Observação: Custos de domínio/renovação são de responsabilidade do contratante. Sujeito a
+                disponibilidade.
+            </p>
+        </section>
+
+        <!-- Seção 6: Manutenção e suporte -->
+        <section class="section-card">
+            <div class="badge">Incluso no Pacote</div>
+            <h3><span class="section-number">06</span> Manutenção e suporte</h3>
+            <p><strong>3 meses de manutenção gratuita</strong> após a entrega (ajustes e correções dentro do escopo).
+            </p>
+            <p style="margin-top: 12px; font-weight: 600; color: var(--text-muted);">Após esse período:</p>
+            <ul style="margin-top: 8px;">
+                <li>Alterações simples (ex.: nome, número, pequenos textos): <span class="highlight"
+                        style="color: #10b981;">Gratuitas</span></li>
+                <li>Alterações complexas (ex.: imagens/vídeos, novas seções, mudanças estruturais): <strong>R$
+                        60</strong> no mês em que houver necessidade, sem mensalidade fixa.</li>
+            </ul>
+        </section>
+
+        <!-- Seção 7: Investimento e condições -->
+        <section class="section-card" style="border-color: var(--primary); background: #fafbff;">
+            <h3><span class="section-number">07</span> Investimento e condições comerciais</h3>
+
+            <div class="price-box">
+                <span class="price-label">Pacote: Landing Page + Agente de IA</span>
+                <span class="price-value">R$ 800,00</span>
+            </div>
+
+            <div class="price-box" style="margin-top: 12px; background: white; border: 1px solid #e9d5ff;">
+                <span class="price-label">Pacote com domínio .com (estimado)</span>
+                <span class="price-value" style="color: var(--secondary);">R$ 840,00</span>
+            </div>
+
+            <div
+                style="margin-top: 1.8rem; padding: 1.2rem; background: white; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="margin-bottom: 10px;"><strong>Forma de pagamento:</strong></p>
+                <ul class="checklist">
+                    <li><strong>50% na entrada</strong> (início do projeto)</li>
+                    <li><strong>50% na entrega</strong>/publicação</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 8: Responsabilidades -->
+        <section class="section-card">
+            <h3><span class="section-number">08</span> Responsabilidades da contratante</h3>
+            <p>Para cumprir o prazo, a contratante deverá fornecer e/ou aprovar:</p>
+            <ul class="checklist" style="margin-top: 10px;">
+                <li>textos e informações dos atendimentos;</li>
+                <li>fotos/imagens (se houver);</li>
+                <li>links (WhatsApp e Instagram);</li>
+                <li>endereço e dados de atendimento (se aplicável).</li>
+            </ul>
+        </section>
+
+        <!-- Seção 9: Próximos passos -->
+        <section class="section-card"
+            style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none;">
+            <h3 style="color: white;"><span class="section-number"
+                    style="background: rgba(255,255,255,0.2); color: white;">09</span> Aceite e próximos passos</h3>
+            <ol style="padding-left: 1.5rem; font-weight: 500;">
+                <li style="margin-bottom: 8px; padding-left: 0;">1. Confirmação do aceite desta proposta</li>
+                <li style="margin-bottom: 8px; padding-left: 0;">2. Envio dos materiais e dados</li>
+                <li style="margin-bottom: 8px; padding-left: 0;">3. Pagamento de entrada</li>
+                <li style="margin-bottom: 0; padding-left: 0;">4. <strong>Início imediato e entrega em até 48h
+                        úteis</strong></li>
+            </ol>
+        </section>
+
+        <!-- Signatures -->
+        <div class="signature-grid">
+            <div>
+                <div style="height: 50px;"></div>
+                <div class="sig-block">
+                    <p style="font-weight: 700; color: var(--text-main);">Prime Team Dev</p>
+                    <p class="sig-label">Responsável: Yan Isonel Pereira</p>
+                    <p style="font-size: 0.8rem; margin-top: 6px; color: var(--text-muted);">Data: 13/04/2026</p>
+                </div>
+            </div>
+            <div>
+                <div style="height: 50px;"></div>
+                <div class="sig-block">
+                    <p style="font-weight: 700; color: var(--text-main);">Contratante</p>
+                    <p class="sig-label">Priscila</p>
+                    <p style="font-size: 0.8rem; margin-top: 6px; color: var(--text-muted);">Data: ____/____/2026</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Prime Team Dev — Proposta Comercial — 2026</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

@@ -1,412 +1,663 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta Comercial - Landing Page com IA</title>
-
-    <!-- Favicon Web (Ícone Dev </>) -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 fill=%22%234f46e5%22 font-family=%22monospace%22 font-weight=%22bold%22>&lt;/&gt;</text></svg>">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Proposta — Landing Page com Agente de IA (Priscila)</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/./assets/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-dark: #3730a3;
-            --accent: #7c3aed;
-            --text-main: #1f2937;
-            --text-light: #6b7280;
-            --bg-page: #f3f4f6;
-            --white: #ffffff;
-            --border: #e5e7eb;
+            --ink: #0f172a;
+            --muted: #475569;
+            --line: #e2e8f0;
+            --card: #ffffff;
+            --bg: #f6f7fb;
+            --accent: #4f46e5;
+            /* indigo */
+            --accent2: #06b6d4;
+            /* cyan */
         }
 
-        /* A4 Setup */
+        /* Page + print */
         @page {
             size: A4;
             margin: 18mm;
         }
 
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+        }
+
+        html,
+        body {
+            height: 100%;
         }
 
         body {
-            font-family: 'Inter', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-page);
-            padding: 40px 0;
+            margin: 0;
+            font: 14px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            color: var(--ink);
+            background: var(--bg);
         }
 
-        .paper {
-            background: var(--white);
-            width: 210mm;
-            min-height: 297mm;
-            margin: 0 auto;
-            padding: 20mm;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            position: relative;
+        .page {
+            max-width: 900px;
+            margin: 28px auto;
+            padding: 0 18px;
         }
 
-        /* Header */
+        .sheet {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, .06);
+            overflow: hidden;
+        }
+
         header {
-            text-align: center;
-            margin-bottom: 4rem;
+            padding: 26px 28px 18px;
+            border-bottom: 1px solid var(--line);
+            background:
+                radial-gradient(1000px 240px at 20% 0%, rgba(79, 70, 229, .14), transparent 60%),
+                radial-gradient(900px 220px at 85% 10%, rgba(6, 182, 212, .12), transparent 55%),
+                #fff;
         }
 
-        .logo {
-            width: 160px;
-            height: auto;
-            margin-bottom: 1.5rem;
-        }
-
-        h1 {
-            font-weight: 700;
-            font-size: 2.5rem;
-            letter-spacing: 0.1em;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Section Styling */
-        .section-card {
-            background: #fafafa;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.8rem;
-            position: relative;
-            break-inside: avoid;
-        }
-
-        .section-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 15px;
-            bottom: 15px;
-            width: 5px;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-            border-radius: 0 4px 4px 0;
-        }
-
-        h2 {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
+        .brand {
             display: flex;
             align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 10px;
         }
 
-        .section-icon {
-            font-size: 0.9rem;
-            margin-right: 10px;
-            color: var(--accent);
-            opacity: 0.7;
+        .brand img {
+            width: 160px;
+            height: auto;
+            display: block;
         }
 
-        /* Lists */
-        ul {
-            list-style: none;
+        .title {
+            text-align: center;
+            margin: 8px 0 0;
         }
 
-        li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.6rem;
-            font-size: 0.95rem;
+        .title h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
         }
 
-        li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
+        .title h2 {
+            margin: 6px 0 0;
+            font-size: 15px;
+            color: var(--muted);
+            font-weight: 600;
         }
 
-        .price-grid {
+        .content {
+            padding: 20px 28px 26px;
+        }
+
+        .summary {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding: 14px 14px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(79, 70, 229, .06), rgba(6, 182, 212, .03));
+        }
+
+        .summary strong {
+            font-weight: 800;
+        }
+
+        .summary ul {
+            margin: 8px 0 0 18px;
+            padding: 0;
+            color: var(--muted);
+        }
+
+        .section {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            margin: 12px 0;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .section .head {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--line);
+            background: #fbfdff;
+        }
+
+        .badge {
+            min-width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+        }
+
+        .head h3 {
+            margin: 0;
+            font-size: 14.5px;
+            line-height: 1.3;
+        }
+
+        .body {
+            padding: 12px 14px 14px;
+            color: var(--ink);
+        }
+
+        .body p {
+            margin: 0 0 10px;
+            color: var(--muted);
+        }
+
+        .body ul,
+        .body ol {
+            margin: 0 0 0 18px;
+            padding: 0;
+            color: var(--muted);
+        }
+
+        .body li {
+            margin: 6px 0;
+        }
+
+        .note {
+            margin-top: 10px;
+            padding: 10px 12px;
+            border-left: 4px solid rgba(79, 70, 229, .55);
+            background: rgba(79, 70, 229, .05);
+            color: var(--muted);
+            border-radius: 8px;
+        }
+
+        .money {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
         }
 
         .price-card {
-            background: var(--primary-dark);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 12px 14px;
+            background: #fff;
         }
 
-        .price-card.accent {
-            background: var(--accent);
+        .price-title {
+            margin: 0;
+            font-weight: 800;
+            color: var(--ink);
         }
 
-        .price-card .label {
-            font-size: 0.8rem;
-            opacity: 0.8;
-            text-transform: uppercase;
+        .price {
+            font-size: 18px;
+            font-weight: 900;
+            margin: 6px 0 0;
+            color: var(--accent);
         }
 
-        .price-card .value {
-            font-size: 1.6rem;
-            font-weight: 700;
-            display: block;
-            margin-top: 5px;
+        .sub {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 13px;
         }
 
-        /* Signatures */
         .signatures {
-            margin-top: 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .sig {
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 12px 14px;
+            color: var(--muted);
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .sig strong {
+            color: var(--ink);
+        }
+
+        .line {
+            margin: 10px 0 6px;
+            border-bottom: 1px solid #cbd5e1;
+            height: 1px;
+        }
+
+        footer {
+            padding: 12px 28px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 12px;
             display: flex;
             justify-content: space-between;
-            gap: 60px;
+            gap: 12px;
+            flex-wrap: wrap;
+            background: #fff;
         }
 
-        .sign-block {
-            flex: 1;
-            border-top: 1px solid #c0c0c0;
-            padding-top: 15px;
-        }
-
-        .sign-block strong {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--primary-dark);
-        }
-
-        .sign-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        .signature-interactive {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--primary);
-            cursor: pointer;
-            min-height: 40px;
-            display: inline-block;
-            transition: all 0.2s;
-        }
-
-        .signature-placeholder {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-style: italic;
-            border-bottom: 1px dashed var(--border);
-            padding: 0 10px;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 4rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-light);
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
-        }
-
-        /* Print Hacks */
+        /* Print tweaks */
         @media print {
             body {
-                background: white;
-                padding: 0;
+                background: #fff;
             }
 
-            .paper {
-                box-shadow: none;
-                width: 100%;
-                height: auto;
+            .page {
                 margin: 0;
                 padding: 0;
+                max-width: none;
             }
 
-            .section-card {
-                border: 1px solid #eee;
-                background: white;
+            .sheet {
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            header {
+                border-bottom: 1px solid #ddd;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 720px) {
+            .content {
+                padding: 16px 16px 18px;
+            }
+
+            header {
+                padding: 20px 16px 14px;
+            }
+
+            footer {
+                padding: 12px 16px;
+            }
+
+            .signatures {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
+    <div class="page">
+        <div class="sheet">
 
-    <main class="paper">
-        <header>
-            <img src="./assets/logo.jpg" alt="Prime Team Dev Logo" class="logo">
-            <h1>PROPOSTA</h1>
-            <div class="subtitle">Landing Page com Agente de IA — Priscila (Fonoaudióloga)</div>
-        </header>
-
-        <!-- Seção 3 -->
-        <div class="section-card">
-            <h2><i class="fa-solid fa-ban section-icon"></i> 3) Itens fora do escopo (não inclusos)</h2>
-            <ul>
-                <li>Gestão de tráfego pago/anúncios</li>
-                <li>Produção profissional de fotos e vídeos</li>
-                <li>Criação contínua de posts para redes sociais</li>
-                <li>Integrações avançadas (CRM, prontuário, pagamentos), sob orçamento à parte</li>
-                <li>E-mail profissional (removido do escopo)</li>
-            </ul>
-        </div>
-
-        <!-- Seção 4 -->
-        <div class="section-card">
-            <h2><i class="fa-solid fa-clock section-icon"></i> 4) Prazos e entregas</h2>
-            <p style="margin-bottom: 10px;"><strong>Prazo de entrega:</strong> até 48 horas úteis, contado a partir de:
-            </p>
-            <ul style="margin-bottom: 10px;">
-                <li>confirmação do pagamento de entrada; e</li>
-                <li>envio/aprovação dos materiais pela contratante (textos, fotos, serviços, links).</li>
-            </ul>
-            <p><strong>Revisões:</strong> 1 rodada de ajustes (textos/layout) dentro do escopo.</p>
-        </div>
-
-        <!-- Seção 5 -->
-        <div class="section-card">
-            <h2><i class="fa-solid fa-globe section-icon"></i> 5) Domínio (opcional)</h2>
-            <p>O domínio pode ser registrado em nome do contratante, garantindo autonomia e controle total sobre o
-                endereço.</p>
-            <ul style="margin-top: 10px;">
-                <li><strong>Domínio .com (estimado):</strong> R$ 40/ano (sujeito a disponibilidade).</li>
-            </ul>
-            <p style="font-size: 0.85rem; font-style: italic; margin-top: 8px; color: var(--text-light);">
-                * Observação: Custos de domínio/renovação são de responsabilidade direta do contratante.
-            </p>
-        </div>
-
-        <!-- Seção 6 -->
-        <div class="section-card">
-            <h2><i class="fa-solid fa-headset section-icon"></i> 6) Manutenção e suporte</h2>
-            <ul style="margin-bottom: 10px;">
-                <li><strong>Garantia:</strong> 3 meses de manutenção gratuita após a entrega (ajustes e correções dentro
-                    do escopo).</li>
-            </ul>
-            <p><strong>Após esse período:</strong></p>
-            <ul style="background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #eee;">
-                <li>Alterações simples (ex.: nome, número, pequenos textos): <strong>Gratuitas</strong></li>
-                <li>Alterações complexas (ex.: imagens/vídeos, novas seções): <strong>R$ 60</strong> no mês em que
-                    houver necessidade (sem mensalidade fixa).</li>
-            </ul>
-        </div>
-
-        <!-- Seção 7 -->
-        <div class="section-card">
-            <h2><i class="fa-solid fa-sack-dollar section-icon"></i> 7) Investimento e condições comerciais</h2>
-            <div class="price-grid">
-                <div class="price-card">
-                    <span class="label">LP + Agente de IA</span>
-                    <span class="value">R$ 800,00</span>
-                    <span style="font-size: 0.7rem;">(Sem domínio)</span>
+            <header>
+                <div class="brand">
+                    <img src="./assets/logo.jpg" alt="Prime Team" loading="eager" referrerpolicy="no-referrer" />
                 </div>
-                <div class="price-card accent">
-                    <span class="label">Pacote com Domínio</span>
-                    <span class="value">R$ 840,00</span>
-                    <span style="font-size: 0.7rem;">(Domínio .com incluso)</span>
+
+                <div class="title">
+                    <h1>PROPOSTA</h1>
+                    <h2>Landing Page com Agente de IA — Priscila (Fonoaudióloga)</h2>
                 </div>
+            </header>
+
+            <div class="content">
+
+                <section class="summary">
+                    <div><strong>Resumo</strong></div>
+                    <ul>
+                        <li><strong>Entrega:</strong> até 48 horas úteis (após entrada + materiais aprovados)</li>
+                        <li><strong>Foco:</strong> agendamentos via WhatsApp + atendimento inicial 24/7 com IA</li>
+                        <li><strong>Manutenção:</strong> 3 meses de manutenção complexa gratuitos
+                        <li>Integração com google negócio e redes sociais. </li>
+                        <li><span>Esta proposta e o contrato servem para alinhar escopo, prazos e responsabilidades,
+                                trazendo transparência e segurança para ambas as partes <br>
+                                Nosso compromisso principal
+                                continua sendo a boa-fé e o acordo entre as partes.</span></li>
+                        </li>
+                    </ul>
+                </section>
+                <!-- Identificação / Cabeçalho da proposta (como seção dentro do conteúdo) -->
+                <section class="section" id="identificacao">
+                    <div class="head">
+                        <div class="badge">0</div>
+                        <h3>Identificação</h3>
+                    </div>
+                    <div class="body">
+                        <ul>
+                            <li><strong>Proponente:</strong> Prime Team Dev</li>
+                            <li><strong>Responsável:</strong> Yan Isonel Pereira — 35992144176</li>
+                            <li><strong>Contratante:</strong> Priscila Miranda </li>
+                            <li><strong>Data:</strong> 14/04/2026</li>
+                            <li><strong>Validade da proposta:</strong> 7 dias</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 1) Objetivo -->
+                <section class="section" id="sec1">
+                    <div class="head">
+                        <div class="badge">1</div>
+                        <h3>Objetivo</h3>
+                    </div>
+                    <div class="body">
+                        <p>
+                            Desenvolver uma <strong>Landing Page profissional</strong> para apresentar os serviços de
+                            fonoaudiologia da <strong>Priscila</strong> e <strong>aumentar o número de agendamentos via
+                                WhatsApp</strong>.
+                        </p>
+                        <p>
+                            A página contará com um <strong>Agente de IA 24/7</strong> para atendimento inicial,
+                            esclarecendo dúvidas
+                            frequentes com base no conteúdo aprovado e direcionando o paciente para <strong>contato e
+                                agendamento</strong>.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- 2) Escopo -->
+                <section class="section" id="sec2">
+                    <div class="head">
+                        <div class="badge">2</div>
+                        <h3>Escopo (o que será entregue)</h3>
+                    </div>
+
+                    <div class="body">
+                        <p style="margin-bottom:12px;">
+                            Entregáveis descritos abaixo, conforme conteúdo aprovado pela contratante.
+                        </p>
+
+                        <h4 style="margin: 0 0 8px; font-size: 14px; color: var(--ink);">2.1) Landing Page (modelo de
+                            alta conversão)</h4>
+                        <p>
+                            Página responsiva (otimizada para celular), seguindo estrutura de landing page, contendo:
+                        </p>
+                        <ul>
+                            <li><strong>Seção inicial (Hero):</strong> chamada principal + botão de WhatsApp (CTA)</li>
+                            <li><strong>Sobre a profissional:</strong> apresentação e credenciais (conforme conteúdo
+                                aprovado)</li>
+                            <li><strong>Serviços/Tratamentos:</strong> descrição objetiva dos principais atendimentos
+                            </li>
+                            <li><strong>Benefícios e diferenciais</strong></li>
+                            <li><strong>Como funciona o atendimento:</strong> passo a passo para orientar o paciente
+                            </li>
+                            <li><strong>FAQ (Dúvidas frequentes):</strong> reduzindo atrito e mensagens repetidas</li>
+                            <li><strong>Localização / atendimento online</strong> (se aplicável)</li>
+                            <li><strong>CTA para WhatsApp</strong> ao longo da página</li>
+                            <li><strong>Footer</strong> com contatos e links</li>
+                        </ul>
+
+                        <div style="height:10px;"></div>
+
+                        <h4 style="margin: 0 0 8px; font-size: 14px; color: var(--ink);">2.2) Destaques estilo Instagram
+                        </h4>
+                        <p>
+                            Inclusão manual de “posts em destaque” (cards/atalhos) na landing page com link para o
+                            <strong>Instagram da Priscila</strong>, incentivando prova social e autoridade.
+                        </p>
+
+                        <div style="height:10px;"></div>
+
+                        <h4 style="margin: 0 0 8px; font-size: 14px; color: var(--ink);">2.3) Agente de IA (chat no
+                            site)</h4>
+                        <p>Criação e integração de um <strong>chat com IA</strong> dentro do site para:</p>
+                        <ul>
+                            <li>informar sobre serviços e orientações iniciais;</li>
+                            <li>responder dúvidas comuns (com base em FAQ e conteúdos aprovados);</li>
+                            <li>conduzir o paciente para o <strong>WhatsApp</strong> quando houver intenção de agendar.
+                            </li>
+                        </ul>
+
+                        <div class="note">
+                            <strong>Limites e ética (saúde):</strong>
+                            <ul style="margin-top:8px;">
+                                <li>O agente de IA <strong>não realiza diagnóstico</strong>, não prescreve e não
+                                    substitui consulta.</li>
+                                <li>Em perguntas clínicas específicas, o agente orienta <strong>agendamento de
+                                        avaliação</strong>.</li>
+                            </ul>
+                        </div>
+
+                        <div style="height:10px;"></div>
+
+                        <h4 style="margin: 0 0 8px; font-size: 14px; color: var(--ink);">2.4) Integrações (opcionais
+                            conforme acesso)</h4>
+                        <ul>
+                            <li>Link direto para WhatsApp com mensagem pré-pronta</li>
+                            <li>Possibilidade de vincular ao <strong>Google Meu Negócio</strong> (mediante
+                                acesso/autorização)</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="section" id="sec3">
+                    <div class="head">
+
+                        <div class="badge">3</div>
+                        <h3>Itens fora do escopo (não inclusos)</h3>
+                    </div>
+                    <div class="body">
+                        <ul>
+                            <li>Gestão de tráfego pago/anúncios</li>
+                            <li>Produção profissional de fotos e vídeos</li>
+                            <li>Criação contínua de posts para redes sociais</li>
+                            <li>Integrações avançadas (CRM, prontuário, pagamentos), sob orçamento à parte</li>
+                            <li><strong>E-mail profissional</strong> (removido do escopo)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section" id="sec4">
+                    <div class="head">
+                        <div class="badge">4</div>
+                        <h3>Prazos e entregas</h3>
+                    </div>
+                    <div class="body">
+                        <p><strong>Prazo de entrega:</strong> até <strong>48 horas úteis</strong>, contado a partir de:
+                        </p>
+                        <ol>
+                            <li>confirmação do pagamento de entrada; e</li>
+                            <li>envio/aprovação dos materiais pela contratante (textos, fotos, serviços, links).</li>
+                        </ol>
+                        <p><strong>Revisões:</strong> 1 rodada de ajustes (textos/layout) dentro do escopo.</p>
+                    </div>
+                </section>
+
+                <section class="section" id="sec5">
+                    <div class="head">
+                        <div class="badge">5</div>
+                        <h3>Domínio (opcional)</h3>
+                    </div>
+                    <div class="body">
+                        <p>O domínio pode ser registrado em nome do contratante, garantindo autonomia e controle.</p>
+                        <ul>
+                            <li><strong>Domínio .com (estimado):</strong> R$ 40/ano (sujeito a disponibilidade e
+                                variação do registrador)</li>
+                        </ul>
+                        <div class="note">
+                            <strong>Observação:</strong> Custos de domínio/renovação são de responsabilidade do
+                            contratante.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section" id="sec6">
+                    <div class="head">
+                        <div class="badge">6</div>
+                        <h3>Manutenção e suporte</h3>
+                    </div>
+                    <div class="body">
+                        <ul>
+                            <li><strong>3 meses de manutenção gratuita</strong> após a entrega (ajustes e correções
+                                dentro do escopo).</li>
+                            <li>Após esse período:
+                                <ul>
+                                    <li><strong>Alterações simples</strong> (ex.: nome, número, pequenos textos):
+                                        <strong>gratuitas</strong>
+                                    </li>
+                                    <li><strong>Alterações complexas</strong> (ex.: imagens/vídeos, novas seções,
+                                        mudanças estruturais): <strong>R$ 60</strong> no mês em que houver necessidade,
+                                        sem mensalidade fixa</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section" id="sec7">
+                    <div class="head">
+                        <div class="badge">7</div>
+                        <h3>Investimento e condições comerciais</h3>
+                    </div>
+                    <div class="body">
+                        <div class="money">
+                            <div class="price-card">
+                                <p class="price-title">Pacote: Landing Page + Agente de IA</p>
+                                <p class="price">R$ 800,00</p>
+                                <p class="sub">(sem domínio)</p>
+                            </div>
+
+                            <div class="price-card">
+                                <p class="price-title">Pacote com domínio .com (estimado)</p>
+                                <p class="price">R$ 840,00</p>
+                                <p class="sub">(inclui estimativa do domínio de R$ 40)</p>
+                            </div>
+
+                            <div class="price-card">
+                                <p class="price-title">Forma de pagamento</p>
+                                <ul>
+                                    <li>50% na entrada (início do projeto)</li>
+                                    <li>50% na entrega/publicação</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section" id="sec8">
+                    <div class="head">
+                        <div class="badge">8</div>
+                        <h3>Responsabilidades da contratante</h3>
+                    </div>
+                    <div class="body">
+                        <p>Para cumprir o prazo, a contratante deverá fornecer e/ou aprovar:</p>
+                        <ul>
+                            <li>textos e informações dos atendimentos;</li>
+                            <li>fotos/imagens (se houver);</li>
+                            <li>links (WhatsApp e Instagram);</li>
+                            <li>endereço e dados de atendimento (se aplicável).</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section" id="sec9">
+                    <div class="head">
+                        <div class="badge">9</div>
+                        <h3>Aceite e próximos passos</h3>
+                    </div>
+                    <div class="body">
+                        <ol>
+                            <li>Confirmação do aceite desta proposta</li>
+                            <li>Envio dos materiais e dados</li>
+                            <li>Pagamento de entrada</li>
+                            <li>Início imediato e entrega em até 48h úteis</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section class="section" id="sign">
+                    <div class="head">
+                        <div class="badge">✍</div>
+                        <h3>Assinaturas</h3>
+                    </div>
+                    <div class="body">
+                        <div class="signatures">
+                            <div class="sig">
+                                <strong>Prime Team Dev</strong><br />
+                                Responsável: ___________________________<br />
+                                Nome: Yan Isonel Pereira<br />
+                                Data: 14/04/2026
+                            </div>
+                            <div class="sig">
+                                <strong>Contratante</strong><br />
+                                ___________________________<br />
+                                Priscila<br />
+                                Data: ____/____/____
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
-            <p><strong>Forma de pagamento:</strong></p>
-            <ul>
-                <li>50% na entrada (Início imediato do projeto)</li>
-                <li>50% na entrega e publicação final</li>
-            </ul>
+            <section class="section" id="aceite">
+                <div class="head">
+                    <div class="badge">✅</div>
+                    <h3>Aceite da proposta</h3>
+                </div>
+                <div class="body">
+                    <p style="margin-bottom:10px;">
+                        Esta proposta e o contrato servem para <strong>alinhar escopo, prazos e
+                            responsabilidades</strong>, trazendo transparência e segurança para ambas as partes.
+                        Nosso compromisso principal continua sendo a <strong>boa-fé e o acordo</strong> entre as partes.
+                    </p>
+
+                    <div style="display:grid; grid-template-columns: 1fr; gap:10px; margin-top:10px;">
+                        <label style="color:var(--muted); font-weight:600;">
+                            CNPJ da contratante
+                            <input id="cnpjInput" type="text" placeholder="00.000.000/0000-00"
+                                style="margin-top:6px; width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:10px;">
+                        </label>
+
+                        <label
+                            style="display:flex; gap:10px; align-items:flex-start; color:var(--muted); font-weight:600;">
+                            <input id="dominioCheck" type="checkbox" style="margin-top:3px;">
+                            Incluir domínio .com (estimado) — <strong>R$ 840,00</strong>
+                            <span style="font-weight:500;">(se desmarcar, permanece <strong>R$ 800,00</strong>)</span>
+                        </label>
+
+                        <button id="aceitarBtn" style="border:none; color:#fff; font-weight:900; cursor:pointer;
+               padding:12px 14px; border-radius:12px;
+               background:linear-gradient(135deg, var(--accent), var(--accent2));">
+                            ACEITAR E VER CONTRATO
+                        </button>
+
+                        <small style="color:var(--muted);">
+                            Ao clicar, você será direcionada ao contrato para assinatura e opção de impressão.
+                        </small>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div>Prime Team Dev — Proposta Comercial</div>
+                <div>Data: 14/04/2026</div>
+            </footer>
+
         </div>
-
-        <!-- Seção 8 -->
-        <div class="section-card">
-            <h2><i class="fa-solid fa-list-check section-icon"></i> 8) Responsabilidades da contratante</h2>
-            <p>Para cumprimento do prazo de 48h, a contratante deverá fornecer:</p>
-            <ul>
-                <li>Textos principais e informações dos atendimentos;</li>
-                <li>Fotos e imagens (se houver);</li>
-                <li>Links (WhatsApp e Instagram);</li>
-                <li>Endereço e dados de atendimento detalhados.</li>
-            </ul>
-        </div>
-
-        <!-- Seção 9 -->
-        <div class="section-card">
-            <h2><i class="fa-solid fa-circle-play section-icon"></i> 9) Aceite e próximos passos</h2>
-            <ol style="margin-left: 1.2rem; font-size: 0.95rem;">
-                <li>Confirmação do aceite desta proposta</li>
-                <li>Envio dos materiais solicitados</li>
-                <li>Pagamento da entrada (50%)</li>
-                <li>Início imediato com entrega em até 48h úteis</li>
-            </ol>
-        </div>
-
-        <div class="signatures">
-            <div class="sign-block">
-                <strong>Prime Team Dev</strong>
-                <span class="sign-label">Responsável: Yan Isonel Pereira</span><br>
-                <span class="sign-label">Data: 13/04/2026</span>
-            </div>
-            <div class="sign-block">
-                <strong>Contratante (Priscila)</strong>
-                <div id="sign-target" class="signature-placeholder" onclick="handleSignature()">Clique aqui para assinar
-                    digitalmente</div>
-                <br>
-                <span class="sign-label">Data: <span id="sign-date">__ / __ / ____</span></span>
-            </div>
-        </div>
-
-        <footer>
-            Prime Team Dev — Proposta Comercial | Emitida em 13 de Abril de 2026
-        </footer>
-    </main>
-
-    <script>
-        function handleSignature() {
-            const name = prompt("Digite seu nome completo para assinar esta proposta:");
-            if (name && name.trim() !== "") {
-                const target = document.getElementById('sign-target');
-                target.innerText = name;
-                target.className = "signature-interactive";
-                target.onclick = null;
-
-                const today = new Date();
-                const dateStr = today.toLocaleDateString('pt-BR');
-                document.getElementById('sign-date').innerText = dateStr;
-
-                // Redirecionamento Automático para WhatsApp
-                setTimeout(() => {
-                    const phone = "5535984688884";
-                    const msg = encodeURIComponent("Olá Yan! Acabei de assinar a proposta da Landing Page (Priscila) e concordo com os termos. Podemos seguir com a contratação!");
-                    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
-                }, 1000);
-            }
-        }
-    </script>
-
+    </div>
 </body>
+<script src="./index.js"></script>
 
 </html>
